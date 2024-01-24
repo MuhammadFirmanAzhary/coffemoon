@@ -1,18 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth ">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/src/output.css">
     <title>Coffemoon</title>
+    <script>
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark')
+      } else {
+        document.documentElement.classList.remove('dark')
+      }
+    </script>
 </head>
-<body>
+<body class="dark:bg-black">
     <!-- header start -->
-    <header class="bg-white absolute top-0 left-0 w-full flex items-center z-10">
+    <header class="bg-transparent absolute top-0 left-0 w-full flex items-center z-10">
         <div class="container">
             <div class="flex items-center justify-between relative">
                 <div class="px-4">
-                    <h1 class="text-xl font-bold  py-6 block">COFFE<span class="text-red-500">MOON</span></h1>
+                    <h1 class="text-xl font-bold  py-6 block text-slate-500 dark:text-white">COFFE<span class="text-red-500">MOON</span></h1>
                 </div>
                 <div class="flex items-center ">
                     <button id="humberger" name="hamburger" type="button" class="block absolute right-4 lg:hidden">
@@ -22,27 +29,41 @@
 
                     </button>
                     <nav id="nav-menu"
-                        class="hidden absolute py-5 bg-white shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none">
+                        class="hidden absolute py-5 bg-white shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none dark:bg-black dark:lg:bg-transparent">
                         <ul class="block lg:flex">
                             <li class="group">
-                                <a href="#home" class="text-base text-dark py-2 mx-8 flex  group-hover:text-primary  ">
+                                <a href="#home" class="text-base text-dark py-2 mx-8 flex text-slate-500 font-semibold  group-hover:text-red-500  ">
                                     Home</a>
                             </li>
                             <li class="group">
-                                <a href="#about" class="text-base text-dark py-2 mx-8 flex  group-hover:text-primary ">
+                                <a href="#picture" class="text-base text-dark py-2 mx-8 flex text-slate-500 font-semibold  group-hover:text-red-500 ">
                                     Picture</a>
                             </li>
                             <li class="group">
-                                <a href="#portfolio"
-                                    class="text-base text-dark py-2 mx-8 flex  group-hover:text-primary ">About us</a>
+                                <a href="#about"
+                                    class="text-base text-dark py-2 mx-8 flex text-slate-500 font-semibold  group-hover:text-red-500 ">About us</a>
                             </li>
                             <li class="group">
-                                <a href="#clients"
-                                    class="text-base text-dark py-2 mx-8 flex  group-hover:text-primary ">Product</a>
+                                <a href="#product"
+                                    class="text-base text-dark py-2 mx-8 flex text-slate-500 font-semibold  group-hover:text-red-500 ">Product</a>
                             </li>
                             <li class="group">
-                                <a href="#contact"
-                                    class="text-base text-dark py-2 mx-8 flex  group-hover:text-primary ">Service</a>
+                                <a href="#service"
+                                    class="text-base text-dark py-2 mx-8 flex text-slate-500 font-semibold  group-hover:text-red-500">Service</a>
+                            </li>
+                            <li class="group flex items-center pl-8">
+                                   <div class="flex ">
+                                    <span class="mr-2 text-sm text-slate-500">Light</span>
+                                    <input type="checkbox" id="dark-toggle" class="hidden">
+                                    <label for="dark-toggle">
+                                        <div class="flex h-5 w-9 rounded-full bg-slate-400 items-center p-1 cursor-pointer">
+                                            <div class="toggle-circle h-4 w-4 bg-white rounded-full">
+
+                                            </div>
+                                        </div>
+                                    </label>
+                                    <span class="ml-2 text-sm text-slate-500">Dark</span>
+                                   </div>
                             </li>
                         </ul>
                     </nav>
@@ -53,25 +74,32 @@
     <!-- header start -->
 
     <!-- home start -->
+   <section id="home">
     <div class="w-full relative h-screen">
         <img class="w-full h-full object-cover absolute top-0" src="src/img/bg.jpg" alt="">
         <div class='absolute w-full h-full top-0 left-0 bg-gray-900/50'>
             <div class='absolute top-0 w-full h-full flex flex-col justify-center text-center text-white p-4'>
-                <h1 class='text-3xl md:text-4xl font-bold mb-2'>COFFFEMOON</h1>
-                <h2 class='text-2xl f mb-3 md:text-2xl'>LET'S DRINK HERE YOU GET THE BEST SERVICE IN THIS CAFE </h2>
+                <h1 class='text-3xl md:text-4xl font-bold mb-2 dark:text-slate-500'>COFFE<span class="text-red-500">MOON</span></h1>
+                <h2 class='text-2xl f mb-3 md:text-2xl '>LET'S DRINK HERE YOU GET THE BEST SERVICE IN THIS CAFE </h2>
                 <div class="flex flex-row justify-center mt-4">
-                    <button class="text-black transition duration-500 ease-in-out font-semibold text-lg border  bg-white py-3 px-4 rounded-lg hover:bg-transparent hover:text-white mr-2 ">See Now</button>
-                    <button class="text-white transition duration-500 ease-in-out font-semibold text-lg border  bg-transparent py-3 px-4 rounded-lg hover:bg-white hover:text-black  ">Pre Order</button>
+                    <button
+                        class="text-black transition duration-500 ease-in-out font-semibold text-lg border  bg-white py-3 px-4 rounded-lg hover:bg-transparent hover:text-white mr-2 ">See
+                        Now</button>
+                    <button
+                        class="text-white transition duration-500 ease-in-out font-semibold text-lg border  bg-transparent py-3 px-4 rounded-lg hover:bg-white hover:text-black  ">Pre
+                        Order</button>
                 </div>
             </div>
         </div>
     </div>
+   </section>
     <!-- home start -->
     
     <!-- picture start -->
+   <section id="picture">
     <div class='max-w-[1240px] mx-auto py-16 px-4 text-center'>
-        <h1 class='text-2xl md:text-3xl font-bold'>All product here halal 100%</h1>
-        <p>On the Lake-Toba The Best Lake In the World </p>
+        <h1 class='text-2xl md:text-3xl font-bold dark:text-white'>All product here halal 100%</h1>
+        <p class="dark:text-white">Nikmati petualangan kopi yang luar biasa hanya di Coffemoon - tempat di mana rasa bertemu dengan keajaiban!</p>
         <div class='grid grid-rows-none md:grid-cols-5 py-4 gap-2 md:gap-4'>
             <img class='w-full h-full object-cover col-span-2 md:col-span-3 row-span-2' src="https://images.unsplash.com/photo-1517640033243-dc06bb716df5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y29vZmZlfGVufDB8fDB8fHww" alt="" />
             <img class='w-full h-full object-cover' src="https://images.unsplash.com/photo-1509785307050-d4066910ec1e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y29vZmZlfGVufDB8fDB8fHww" alt="" />
@@ -80,20 +108,21 @@
             <img class='w-full h-full object-cover' src="https://images.unsplash.com/photo-1596457367723-f41a2225e538?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29vZmZlfGVufDB8fDB8fHww" alt="" />
         </div>
     </div>
+   </section>
     <!-- picture end -->
 
     <!-- about start -->
-    <section id="#about">
+    <section id="about">
         <div class='max-w-[1240px] mx-auto py-16 px-4 '>
             <div class="flex flex-wrap">
-                <div class="w-full px-4 mb-10 lg:w-1/2">
+                <div class="w-full px-4 mb-10 lg:w-1/2  dark:text-white">
                     <h1 class="font-bold text-red-500 uppercase text-lg mb-3">About us</h1>
-                    <h2 class="font-bold text-dark text-3xl max-w-md mb-5 lg:text-4xl">COFFFEMOON</h2>
+                    <h2 class="font-bold text-dark text-3xl max-w-md mb-5 lg:text-4xl text-slate-500">COFFFE<span class="text-red-500">MOON</span></h2>
                     <p class="font-medium text-base  lg:text-lg">Temukan suasana yang asik dan kreatif di Coffemoon. Cangkir kopi kami membawa Anda ke perjalanan cita rasa yang luar biasa</p>
                 </div>
                 <div class="w-full px-4 mb-10 lg:w-1/2">
-                    <h2 class="font-semibold text-dark text-2xl mb-6 lg:text-3xl lg:pt-10 uppercase">Come on join here</h2>
-                    <p class="font-medium text-base mb-6">Coffemoon: Kini Hadir di Sosial Media! 🚀!</p>
+                    <h2 class="font-semibold text-dark text-2xl mb-6 lg:text-3xl lg:pt-10 uppercase  dark:text-white">Come on join here</h2>
+                    <p class="font-medium text-base mb-6  dark:text-white">Coffemoon: Kini Hadir di Sosial Media! 🚀!</p>
                     <div class="flex items-center">
                         <!-- youtube -->
                         <a href=""
@@ -123,7 +152,7 @@
                            
                         </a> <!-- tiktok -->
                         <a href=""
-                            class="w-9 h-9 rounded-full border mr-3 border-slate-300 flex  justify-center items-center hover:border-black text-slate-500 hover:bg-black hover:text-yellow-300">
+                            class="w-9 h-9 rounded-full border mr-3 border-slate-300 flex  justify-center items-center hover:border-black text-slate-500 hover:bg-black hover:text-yellow-300 dark:hover:bg-white">
                           <svg role="img" width="20px" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Amazon</title><path d="M.045 18.02c.072-.116.187-.124.348-.022 3.636 2.11 7.594 3.166 11.87 3.166 2.852 0 5.668-.533 8.447-1.595l.315-.14c.138-.06.234-.1.293-.13.226-.088.39-.046.525.13.12.174.09.336-.12.48-.256.19-.6.41-1.006.654-1.244.743-2.64 1.316-4.185 1.726a17.617 17.617 0 01-10.951-.577 17.88 17.88 0 01-5.43-3.35c-.1-.074-.151-.15-.151-.22 0-.047.021-.09.051-.13zm6.565-6.218c0-1.005.247-1.863.743-2.577.495-.71 1.17-1.25 2.04-1.615.796-.335 1.756-.575 2.912-.72.39-.046 1.033-.103 1.92-.174v-.37c0-.93-.105-1.558-.3-1.875-.302-.43-.78-.65-1.44-.65h-.182c-.48.046-.896.196-1.246.46-.35.27-.575.63-.675 1.096-.06.3-.206.465-.435.51l-2.52-.315c-.248-.06-.372-.18-.372-.39 0-.046.007-.09.022-.15.247-1.29.855-2.25 1.82-2.88.976-.616 2.1-.975 3.39-1.05h.54c1.65 0 2.957.434 3.888 1.29.135.15.27.3.405.48.12.165.224.314.283.45.075.134.15.33.195.57.06.254.105.42.135.51.03.104.062.3.076.615.01.313.02.493.02.553v5.28c0 .376.06.72.165 1.036.105.313.21.54.315.674l.51.674c.09.136.136.256.136.36 0 .12-.06.226-.18.314-1.2 1.05-1.86 1.62-1.963 1.71-.165.135-.375.15-.63.045a6.062 6.062 0 01-.526-.496l-.31-.347a9.391 9.391 0 01-.317-.42l-.3-.435c-.81.886-1.603 1.44-2.4 1.665-.494.15-1.093.227-1.83.227-1.11 0-2.04-.343-2.76-1.034-.72-.69-1.08-1.665-1.08-2.94l-.05-.076zm3.753-.438c0 .566.14 1.02.425 1.364.285.34.675.512 1.155.512.045 0 .106-.007.195-.02.09-.016.134-.023.166-.023.614-.16 1.08-.553 1.424-1.178.165-.28.285-.58.36-.91.09-.32.12-.59.135-.8.015-.195.015-.54.015-1.005v-.54c-.84 0-1.484.06-1.92.18-1.275.36-1.92 1.17-1.92 2.43l-.035-.02zm9.162 7.027c.03-.06.075-.11.132-.17.362-.243.714-.41 1.05-.5a8.094 8.094 0 011.612-.24c.14-.012.28 0 .41.03.65.06 1.05.168 1.172.33.063.09.099.228.099.39v.15c0 .51-.149 1.11-.424 1.8-.278.69-.664 1.248-1.156 1.68-.073.06-.14.09-.197.09-.03 0-.06 0-.09-.012-.09-.044-.107-.12-.064-.24.54-1.26.806-2.143.806-2.64 0-.15-.03-.27-.087-.344-.145-.166-.55-.257-1.224-.257-.243 0-.533.016-.87.046-.363.045-.7.09-1 .135-.09 0-.148-.014-.18-.044-.03-.03-.036-.047-.02-.077 0-.017.006-.03.02-.063v-.06z"/></svg>
                         </a>
                     </div>
@@ -133,7 +162,7 @@
     </section>
     
     <!-- product start -->
-    <Section id="#product">
+    <Section id="product">
         <div class='max-w-[1240px] mx-auto py-16 px-4 '>
             <div class="flex flex-wrap">
                 <div class="w-full px-4 mb-10 lg:w-1/2">
@@ -161,8 +190,8 @@
                         </div>
                       </div>
                 </div>
-                <div class="w-full px-4 mb-10 lg:w-1/2">
-                    <h1 class="text-2xl font-bold py-3 block md:text-4xl">COFFE<span class="text-red-500">MOON</span></h1>
+                <div class="w-full px-4 mb-10 lg:w-1/2  dark:text-white">
+                    <h1 class="text-2xl font-bold py-3 block md:text-4xl text-slate-500">COFFE<span class="text-red-500">MOON</span></h1>
                     <p class="font-medium text-base mb-6"><span class="font-bold">Selamat Datang di Coffemoon:</span> Di Mana Setiap Minum Menyimpan Cerita
                         🌙✨
                         
@@ -175,7 +204,7 @@
     <!-- product end -->
 
     <!-- footer start-->
-    <footer class="footer p-10 bg-base-200 text-base-content">
+    <footer class="footer p-10 bg-base-200 text-base-content dark:bg-black dark:text-white" id="service">
         <nav>
           <header class="footer-title">Services</header> 
           <a class="link link-hover">Branding</a>
@@ -210,6 +239,14 @@
         </form>
       </footer>
     <!-- footer end -->
+
+    <!-- back to top -->
+    <a href="#home" class="fixed bottom-4 right-4 z-[9999] h-10 w-10 bg-red-500 rounded-full hidden animate-bounce " id="to-top">
+        <span class="flex justify-center items-center mt-2 ">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="fill-current" viewBox="0 0 24 24" style="fill: rgb(245, 236, 236);"><path d="M11 8.414V18h2V8.414l4.293 4.293 1.414-1.414L12 4.586l-6.707 6.707 1.414 1.414z"></path></svg>
+        </span>
+    </a>
+    <!-- back to top -->
 
     <!-- js -->
 
